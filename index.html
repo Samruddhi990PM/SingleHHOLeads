@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Strategy Cues — Turn Your Holiday Home Into Passive Income</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <!-- ✅ Edit these four values before deploying -->
+  <script>
+    const CONFIG = {
+      SUPABASE_URL:      "https://bkmqdolnunntmlkafkaq.supabase.co",
+      SUPABASE_ANON_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJrbXFkb2xudW5udG1sa2Fma2FxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ1MjY4NzIsImV4cCI6MjA5MDEwMjg3Mn0.1E0rBEAwAYlDLl6cBeCz3id6isQ7RMeCrXGbbUtdsQw",
+      WHATSAPP_NUMBER:   "919970426866",
+      CALENDLY_URL:      "https://calendly.com/samruddhi-official990/30min",
+    };
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:      #f0ead8;
+      --gold:       #f0b820;
+      --gold-hover: #ffd84d;
+      --gold-text:  #c8940a;
+      --ink:        #1a1208;
+      --ink-muted:  #4a4030;
+      --white:      #ffffff;
+      --nav-bg:     #0e0c06;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ════════════════════════════════════════
+       NAV — centered wordmark with gold lines
+    ════════════════════════════════════════ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--nav-bg);
+      height: 58px;
+      display: flex; align-items: center;
+      padding: 0 44px;
+    }
+    .nav-left  { display: flex; gap: 28px; align-items: center; }
+    .nav-right { display: flex; gap: 28px; align-items: center; margin-left: auto; }
+
+    .nav-brand-wrap {
+      position: absolute; left: 50%; transform: translateX(-50%);
+      display: flex; align-items: center; gap: 14px;
+    }
+    .nav-brand-line {
+      width: 44px; height: 1px;
+      background: linear-gradient(to right, transparent, rgba(240,184,32,0.7));
+    }
+    .nav-brand-line.r {
+      background: linear-gradient(to left, transparent, rgba(240,184,32,0.7));
+    }
+    .nav-logo {
+      font-family: 'Lato', sans-serif;
+      font-weight: 700; font-size: 11px;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold); text-decoration: none;
+    }
+
+    .nav-left a, .nav-right a.nl {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none; font-size: 13.5px;
+      transition: color 0.2s;
+    }
+    .nav-left a:hover, .nav-right a.nl:hover { color: #fff; }
+
+    .nav-cta {
+      background: var(--gold); color: var(--ink);
+      padding: 8px 20px; border-radius: 50px;
+      font-weight: 700; font-size: 12.5px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    }
+    .nav-cta:hover {
+      background: var(--gold-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(240,184,32,0.45);
+    }
+
+    /* ════════════════════════════════════════
+       HERO
+    ════════════════════════════════════════ */
+    .hero-section {
+      position: relative;
+      min-height: 600px;
+      margin-top: 58px;
+      overflow: hidden;
+      display: flex; align-items: flex-end;
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0;
+      /* hotel.png sits in the same folder as index.html */
+      background-image: url('hotel.png');
+      background-size: cover;
+      background-position: center 30%;
+    }
+    /* Multi-stop overlay: dark top for readability, cream fade at bottom */
+    .hero-bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(10,8,2,0.42) 0%,
+        rgba(10,8,2,0.08) 48%,
+        rgba(240,234,216,0.94) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 0 52px 64px;
+      max-width: 760px;
+    }
+
+    /* ✦ shining pill */
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: rgba(10,8,2,0.70);
+      border: 1px solid rgba(240,184,32,0.38);
+      color: rgba(255,255,255,0.92);
+      font-size: 11px; letter-spacing: 0.15em;
+      text-transform: uppercase; font-weight: 700;
+      padding: 7px 18px; border-radius: 50px;
+      margin-bottom: 24px;
+      opacity: 0; animation: fadeUp 0.7s 0.1s ease forwards;
+      position: relative; overflow: hidden;
+    }
+    /* sweep shine */
+    .hero-tag::before {
+      content: '';
+      position: absolute; top: 0; left: -100%;
+      width: 55%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(240,184,32,0.28), transparent);
+      animation: sweepShine 4s 1.8s ease infinite;
+    }
+    @keyframes sweepShine {
+      0%   { left: -100%; }
+      55%  { left: 140%; }
+      100% { left: 140%; }
+    }
+
+    /* The ✦ star in badge — glows & pulses */
+    .hero-star {
+      color: var(--gold);
+      font-size: 14px;
+      display: inline-block;
+      animation: starSpin 6s 2s linear infinite;
+      filter: drop-shadow(0 0 4px rgba(240,184,32,0.7));
+    }
+    @keyframes starSpin {
+      0%   { transform: rotate(0deg)   scale(1);   filter: drop-shadow(0 0 4px  rgba(240,184,32,0.6)); }
+      25%  { transform: rotate(90deg)  scale(1.25); filter: drop-shadow(0 0 12px rgba(240,184,32,0.95)); }
+      50%  { transform: rotate(180deg) scale(1);   filter: drop-shadow(0 0 4px  rgba(240,184,32,0.6)); }
+      75%  { transform: rotate(270deg) scale(1.25); filter: drop-shadow(0 0 12px rgba(240,184,32,0.95)); }
+      100% { transform: rotate(360deg) scale(1);   filter: drop-shadow(0 0 4px  rgba(240,184,32,0.6)); }
+    }
+
+    .hero-h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5.5vw, 3.9rem);
+      font-weight: 900; line-height: 1.07;
+      color: #fff;
+      text-shadow: 0 3px 28px rgba(0,0,0,0.38);
+      opacity: 0; animation: fadeUp 0.8s 0.22s ease forwards;
+    }
+    .hero-h1 em {
+      font-style: italic;
+      color: var(--gold);
+      text-shadow: 0 0 48px rgba(240,184,32,0.35);
+    }
+
+    /* ════════════════════════════════════════
+       BELOW HERO
+    ════════════════════════════════════════ */
+    .below-hero {
+      background: var(--cream);
+      padding: 72px 52px 88px;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 64px;
+      align-items: start;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .tagline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.7rem, 3vw, 2.1rem);
+      font-weight: 700; line-height: 1.25;
+      margin-bottom: 16px;
+      opacity: 0; animation: fadeUp 0.7s 0.3s ease forwards;
+    }
+    .tagline span { color: var(--gold-text); }
+
+    .sub-text {
+      font-size: 15px; color: var(--ink-muted);
+      line-height: 1.75; margin-bottom: 38px; max-width: 440px;
+      opacity: 0; animation: fadeUp 0.7s 0.38s ease forwards;
+    }
+
+    /* ✦ feature bullets */
+    .feature-list { list-style: none; display: flex; flex-direction: column; gap: 20px; }
+    .feature-item {
+      display: flex; align-items: flex-start; gap: 14px;
+      opacity: 0; animation: fadeUp 0.6s ease forwards;
+    }
+    .feature-item:nth-child(1) { animation-delay: 0.46s; }
+    .feature-item:nth-child(2) { animation-delay: 0.56s; }
+    .feature-item:nth-child(3) { animation-delay: 0.66s; }
+    .feature-item:nth-child(4) { animation-delay: 0.76s; }
+
+    .fi-star {
+      flex-shrink: 0;
+      color: var(--gold);
+      font-size: 14px;
+      line-height: 1;
+      margin-top: 3px;
+      display: inline-block;
+      animation: fiGlow 3.5s ease-in-out infinite;
+    }
+    .feature-item:nth-child(2) .fi-star { animation-delay: 0.9s; }
+    .feature-item:nth-child(3) .fi-star { animation-delay: 1.8s; }
+    .feature-item:nth-child(4) .fi-star { animation-delay: 2.7s; }
+    @keyframes fiGlow {
+      0%, 100% { filter: drop-shadow(0 0 3px rgba(240,184,32,0.25)); }
+      50%       { filter: drop-shadow(0 0 10px rgba(240,184,32,0.8)); transform: scale(1.2); }
+    }
+
+    .fi-text { font-size: 15px; color: var(--ink-muted); line-height: 1.6; }
+    .fi-text strong { color: var(--ink); font-weight: 700; }
+
+    /* ════════════════════════════════════════
+       FORM CARD
+    ════════════════════════════════════════ */
+    .form-card {
+      background: var(--white);
+      border-radius: 22px;
+      padding: 38px 34px 42px;
+      box-shadow: 0 8px 64px rgba(80,60,10,0.13);
+      position: sticky; top: 76px;
+      opacity: 0; animation: fadeUp 0.9s 0.32s ease forwards;
+    }
+    .form-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.55rem; font-weight: 700;
+      color: var(--ink); margin-bottom: 6px;
+    }
+    .form-sub {
+      font-size: 13.5px; color: var(--ink-muted);
+      margin-bottom: 28px; line-height: 1.55;
+    }
+
+    .field { margin-bottom: 18px; }
+    .field label {
+      display: block; font-size: 12.5px;
+      font-weight: 700; color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .field input {
+      width: 100%; padding: 13px 16px;
+      border: 1.5px solid #e0d8c0;
+      border-radius: 10px; background: #fdfaf3;
+      font-family: 'Lato', sans-serif;
+      font-size: 14.5px; color: var(--ink);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+    }
+    .field input::placeholder { color: #b0a070; }
+    .field input:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(240,184,32,0.18);
+      background: #fff;
+    }
+
+    .btn-submit {
+      width: 100%; padding: 16px;
+      background: var(--gold); color: var(--ink);
+      border: none; border-radius: 50px;
+      font-family: 'Lato', sans-serif;
+      font-size: 15px; font-weight: 700;
+      cursor: pointer; margin-top: 8px;
+      position: relative; overflow: hidden;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .btn-submit::after {
+      content: '';
+      position: absolute; top: 0; left: -100%;
+      width: 55%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.38), transparent);
+      transform: skewX(-15deg);
+      transition: left 0.5s ease;
+    }
+    .btn-submit:hover {
+      background: var(--gold-hover);
+      box-shadow: 0 6px 32px rgba(240,184,32,0.55);
+      transform: translateY(-2px);
+    }
+    .btn-submit:hover::after { left: 140%; }
+    .btn-submit:active { transform: translateY(0); }
+    .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+
+    .btn-arrow { font-size: 17px; transition: transform 0.2s; }
+    .btn-submit:hover .btn-arrow { transform: translateX(4px); }
+
+    .form-note {
+      text-align: center; font-size: 12px;
+      color: #9a8860; margin-top: 14px;
+    }
+
+    .error-msg {
+      background: #fff5f5; border: 1px solid #f5c0c0;
+      color: #c0392b; border-radius: 8px;
+      padding: 10px 14px; font-size: 13px;
+      margin-top: 12px; display: none;
+    }
+    .error-msg.show { display: block; }
+
+    .spinner {
+      width: 17px; height: 17px;
+      border: 2.5px solid rgba(26,18,8,0.2);
+      border-top-color: var(--ink);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      display: inline-block;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 920px) {
+      nav { padding: 0 20px; }
+      .nav-left, .nav-right { display: none; }
+      nav { justify-content: center; }
+      .nav-brand-wrap { position: static; transform: none; }
+      .hero-content { padding: 0 22px 48px; }
+      .below-hero { grid-template-columns: 1fr; padding: 40px 22px 60px; gap: 40px; }
+      .form-card { position: static; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-left">
+    <a href="#form-section">Get Started</a>
+    <a href="#how-it-works">How It Works</a>
+  </div>
+
+  <div class="nav-brand-wrap">
+    <div class="nav-brand-line"></div>
+    <a href="#" class="nav-logo">Strategy Cues</a>
+    <div class="nav-brand-line r"></div>
+  </div>
+
+  <div class="nav-right">
+    <a href="#form-section" class="nav-cta">Free Consultation</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero-section">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-tag">
+      <span class="hero-star">✦</span>
+      Your Holiday Home, Fully Managed
+    </div>
+    <h1 class="hero-h1">
+      Turn Your Property<br>
+      Into a <em>Passive<br>Income</em> Machine
+    </h1>
+  </div>
+</section>
+
+<!-- BELOW HERO -->
+<section class="below-hero" id="form-section">
+
+  <div class="left-col">
+    <h2 class="tagline">
+      Everything handled.<br>
+      <span>Nothing to worry about.</span>
+    </h2>
+    <p class="sub-text">
+      Join hundreds of holiday home owners who trust Strategy Cues to manage,
+      market, and maximise their rental income.
+    </p>
+
+    <ul class="feature-list" id="how-it-works">
+      <li class="feature-item">
+        <span class="fi-star">✦</span>
+        <div class="fi-text">We deliver a fully managed letting service within <strong>14 days of onboarding.</strong></div>
+      </li>
+      <li class="feature-item">
+        <span class="fi-star">✦</span>
+        <div class="fi-text">Simple, paperless setup — you're <strong>live in as little as 2 weeks.</strong></div>
+      </li>
+      <li class="feature-item">
+        <span class="fi-star">✦</span>
+        <div class="fi-text">From first contact to first booking, we <strong>handle everything end-to-end.</strong></div>
+      </li>
+      <li class="feature-item">
+        <span class="fi-star">✦</span>
+        <div class="fi-text">Your dedicated manager reaches out <strong>within 24 hours of sign-up.</strong></div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="form-card" id="main-form-card">
+    <h2>Get My Free Consultation</h2>
+    <p class="form-sub">Our team will reach out within 24 hours to discuss your property.</p>
+
+    <div class="field">
+      <label for="company">Company Name</label>
+      <input type="text" id="company" placeholder="e.g. Beachside Retreats Ltd" autocomplete="organization" />
+    </div>
+    <div class="field">
+      <label for="phone">Contact Number</label>
+      <input type="tel" id="phone" placeholder="e.g. +971 50 123 4567" autocomplete="tel" />
+    </div>
+
+    <div class="error-msg" id="error-msg">Please fill in both fields to continue.</div>
+
+    <button class="btn-submit" id="submit-btn" onclick="handleSubmit()">
+      <span id="btn-label">Get My Free Consultation</span>
+      <span class="btn-arrow" id="btn-arrow">→</span>
+    </button>
+    <p class="form-note">No commitment. We'll reach out within 24 hours.</p>
+  </div>
+
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script>
+  let db = null;
+  try {
+    if (!CONFIG.SUPABASE_URL.includes('YOUR_PROJECT')) {
+      db = window.supabase.createClient(CONFIG.SUPABASE_URL, CONFIG.SUPABASE_ANON_KEY);
+    }
+  } catch(e) { console.warn("Supabase init skipped"); }
+
+  async function handleSubmit() {
+    const company  = document.getElementById('company').value.trim();
+    const phone    = document.getElementById('phone').value.trim();
+    const errMsg   = document.getElementById('error-msg');
+    const btn      = document.getElementById('submit-btn');
+    const lbl      = document.getElementById('btn-label');
+    const arr      = document.getElementById('btn-arrow');
+
+    if (!company || !phone) { errMsg.classList.add('show'); return; }
+    errMsg.classList.remove('show');
+
+    btn.disabled = true;
+    lbl.innerHTML = '<span class="spinner"></span>';
+    arr.style.display = 'none';
+
+    try {
+      if (db) {
+        const { error } = await db.from('leads').insert([{
+          company_name: company, contact_number: phone,
+          source: 'holiday-home-ad', created_at: new Date().toISOString(),
+        }]);
+        if (error) console.warn("DB:", error.message);
+      }
+      sessionStorage.setItem('lead_company', company);
+      sessionStorage.setItem('lead_phone',   phone);
+      window.location.href = 'success.html';
+    } catch(err) {
+      btn.disabled = false;
+      lbl.textContent = 'Get My Free Consultation';
+      arr.style.display = '';
+      errMsg.textContent = 'Something went wrong. Please try again.';
+      errMsg.classList.add('show');
+    }
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Enter') handleSubmit(); });
+</script>
+</body>
+</html>
