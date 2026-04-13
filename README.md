@@ -107,6 +107,12 @@ WITH CHECK (true);
 
 ---
 
+## 🔄 GIT and Vercel locations
+Push this repo to GitHub: Samruddhi990PM -> PriceLabsDeviationAnalyzer
+Vercel: samruddhi.waghchaure@strategycues.com -> StrategyCues Projects (Hobby) -> SingleHHOLeads
+Your app will be live at https://single-hho-leads.vercel.app/
+
+---
 ## 📎 Notes
 
 * Ensure Supabase project is active and API keys are valid
