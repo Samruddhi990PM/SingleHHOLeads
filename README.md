@@ -54,10 +54,10 @@ The application uses the following hardcoded configuration:
 
 ```js
 const CONFIG = {
-  SUPABASE_URL:      "https://bkmqdolnunntmlkafkaq.supabase.co",
-  SUPABASE_ANON_KEY: "YOUR_SUPABASE_ANON_KEY",
-  WHATSAPP_NUMBER:   "919970426866",
-  CALENDLY_URL:      "https://calendly.com/samruddhi-official990/30min",
+  SUPABASE_URL:      "https://bkmqdlkafkaq.supabase.co",
+  SUPABASE_ANON_KEY: "_ANON_KEY",
+  WHATSAPP_NUMBER:   "9999988888",
+  CALENDLY_URL:      "https://calendly.com/Tejas-official990/30min",
 };
 ```
 
@@ -66,6 +66,9 @@ const CONFIG = {
 ## 🗄️ Database Setup (Supabase)
 
 ### Table Structure (Example: `leads`)
+
+Account: ishanstrategycues
+Table path: accountonboarding -> SCGenericApps -> leads
 
 | Column Name    | Type      |
 | -------------- | --------- |
